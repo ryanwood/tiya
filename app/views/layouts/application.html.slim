@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title Blog
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+    .container
+      - if flash[:notice]
+        .alert.alert-warn = flash[:notice]
+      - if flash[:alert]
+        .alert.alert-error = flash[:alert]
+
+      = yield
